@@ -18,6 +18,7 @@ public class JSONArrayTest extends TestCase {
 		assertEquals("[]", jsonArray.toJSONString());
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void testJSONArrayCollection() {
 		final ArrayList testList = new ArrayList();
 		testList.add("First item");
@@ -28,6 +29,7 @@ public class JSONArrayTest extends TestCase {
 		assertEquals("[\"First item\",\"Second item\"]", jsonArray.toJSONString());
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void testWriteJSONStringCollectionWriter() throws IOException, ParseException {
 		final HashSet testSet = new HashSet();
 		testSet.add("First item");
@@ -46,6 +48,7 @@ public class JSONArrayTest extends TestCase {
 		assertEquals(2, jsonArray.size());
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void testToJSONStringCollection() throws ParseException {
 		final HashSet testSet = new HashSet();
 		testSet.add("First item");

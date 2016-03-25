@@ -16,6 +16,7 @@ import java.util.StringTokenizer;
  */
 public class ItemList {
 	private String sp=",";
+	@SuppressWarnings("rawtypes")
 	List items=new ArrayList();
 	
 	
@@ -35,6 +36,7 @@ public class ItemList {
 		split(s,sp,items,isMultiToken);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public List getItems(){
 		return this.items;
 	}
@@ -43,6 +45,7 @@ public class ItemList {
 		return (String[])this.items.toArray();
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void split(String s,String sp,List append,boolean isMultiToken){
 		if(s==null || sp==null)
 			return;
@@ -57,7 +60,8 @@ public class ItemList {
 		}
 	}
 	
-	public void split(String s,String sp,List append){
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public void split(String s,String sp, List append){
 		if(s==null || sp==null)
 			return;
 		int pos=0;
@@ -77,18 +81,21 @@ public class ItemList {
 		this.sp=sp;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void add(int i,String item){
 		if(item==null)
 			return;
 		items.add(i,item.trim());
 	}
 
+	@SuppressWarnings("unchecked")
 	public void add(String item){
 		if(item==null)
 			return;
 		items.add(item.trim());
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void addAll(ItemList list){
 		items.addAll(list.items);
 	}
