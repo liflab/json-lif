@@ -3,6 +3,9 @@ package org.json.simple;
 import java.io.IOException;
 import java.io.StringWriter;
 
+import org.json.simple.JSONValue;
+
+
 import junit.framework.TestCase;
 
 public class JSONValueTest extends TestCase {

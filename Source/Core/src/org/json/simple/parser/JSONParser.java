@@ -15,10 +15,11 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 
+
 /**
  * Parser for JSON text. Please note that JSONParser is NOT thread-safe.
  * 
- * @author FangYidong<fangyidong@yahoo.com.cn>
+ * @author Fang Yidong <fangyidong@yahoo.com.cn>
  */
 @SuppressWarnings("rawtypes")
 public class JSONParser {
@@ -97,7 +98,7 @@ public class JSONParser {
 	 * Parse JSON text into java object from the input source.
 	 * 	
 	 * @param in
-     * @param containerFactory - Use this factory to createyour own JSON object and JSON array containers.
+     * @param containerFactory - Use this factory to create your own JSON object and JSON array containers.
 	 * @return Instance of the following:
 	 *  org.json.simple.JSONObject,
 	 * 	org.json.simple.JSONArray,
