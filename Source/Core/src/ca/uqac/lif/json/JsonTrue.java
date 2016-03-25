@@ -18,21 +18,13 @@
 package ca.uqac.lif.json;
 
 /**
- * Main class that simply displays the version number and
- * license information.
+ * Representation of the true value
  */
-public class JsonMain
+public class JsonTrue extends JsonElement
 {
-	/**
-	 * Dummy main
-	 * @param args The command-line arguments (ignored)
-	 */
-	public static void main(String[] args)
+	@Override
+	protected String toString(String indent, boolean compact)
 	{
-		String version = "1.1";
-		System.out.println("json-lif version " + version + ", manipulate JSON elements in Java");
-		System.out.println("(C) 2015-2016 Sylvain Hallé, Université du Québec à Chicoutimi");
-		System.out.println("This JAR is not meant to be executed as a stand-alone program.");
+		return "true";
 	}
-
 }

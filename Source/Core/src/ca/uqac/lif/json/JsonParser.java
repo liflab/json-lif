@@ -63,7 +63,11 @@ public class JsonParser
 	protected static JsonElement wrap(Object obj)
 	{
 		JsonElement out = null;
-		if (obj instanceof JSONObject)
+		if (obj == null)
+		{
+			return new JsonNull();
+		}
+		else if (obj instanceof JSONObject)
 		{
 			JSONObject o = (JSONObject) obj;
 			JsonMap to_out = new JsonMap();
@@ -93,6 +97,14 @@ public class JsonParser
 		else if (obj instanceof Number)
 		{
 			out = new JsonNumber((Number) obj);
+		}
+		else if (obj instanceof Boolean)
+		{
+			if (((Boolean) obj) == true)
+			{
+				out = new JsonTrue();
+			}
+			out = new JsonFalse();
 		}
 		return out;
 	}
