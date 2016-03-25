@@ -1,10 +1,10 @@
 /*
-    Cornipickle, validation of layout bugs in web applications
-    Copyright (C) 2015 Sylvain Hallé
+    json-lif, manipulate JSON elements in Java
+    Copyright (C) 2015-2016 Sylvain Hallé
 
     This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
+    it under the terms of the GNU Lesser General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
@@ -17,27 +17,41 @@
  */
 package ca.uqac.lif.json;
 
+/**
+ * Implementation of a string value in a JSON structure
+ */
 public class JsonString extends JsonElement
 {
-  String m_string;
-  
-  public JsonString(String s)
-  {
-    super();
-    m_string = s;
-  }
-  
-  public String stringValue()
-  {
-    return m_string;
-  }
-  
-  @Override
-  public String toString(String indent, boolean compact)
-  {
-    StringBuilder out = new StringBuilder();
-    out.append("\"").append(m_string).append("\"");
-    return out.toString();
-  }
+	/**
+	 * The string value
+	 */
+	private String m_string;
+
+	/**
+	 * Creates a new JSON string from a Java string
+	 * @param n The string
+	 */
+	public JsonString(String s)
+	{
+		super();
+		m_string = s;
+	}
+
+	/**
+	 * Returns the string value of this JSON string
+	 * @return The string
+	 */
+	public String stringValue()
+	{
+		return m_string;
+	}
+
+	@Override
+	public String toString(String indent, boolean compact)
+	{
+		StringBuilder out = new StringBuilder();
+		out.append("\"").append(m_string).append("\"");
+		return out.toString();
+	}
 
 }

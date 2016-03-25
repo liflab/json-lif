@@ -18,21 +18,21 @@
 package ca.uqac.lif.json;
 
 /**
- * Implementation of a JSON element. All concrete elements of a JSON object
- * (maps, lists, number, strings) are descendents of this class.
+ * Main class that simply displays the version number and
+ * license information.
  */
-public abstract class JsonElement
+public class JsonMain
 {
-  @Override
-  public final String toString()
-  {
-    return toString("");
-  }
-  
-  protected String toString(String indent)
-  {
-  	return toString(indent, true);
-  }
-  
-  protected abstract String toString(String indent, boolean compact);
+	/**
+	 * Dummy main
+	 * @param args The command-line arguments (ignored)
+	 */
+	public static void main(String[] args)
+	{
+		String version = "1.0";
+		System.out.println("json-lif version " + version + ", manipulate JSON elements in Java");
+		System.out.println("(C) 2015-2016 Sylvain Hallé, Université du Québec à Chicoutimi");
+		System.out.println("This JAR is not meant to be executed as a stand-alone program.");
+	}
+
 }
