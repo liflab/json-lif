@@ -26,6 +26,14 @@ public class JsonNumber extends JsonElement
 	 * The number value
 	 */
 	private Number m_number;
+	
+	/**
+	 * Creates a new JSON number with value 0
+	 */
+	public JsonNumber()
+	{
+		this(0);
+	}
 
 	/**
 	 * Creates a new JSON number from a Java number

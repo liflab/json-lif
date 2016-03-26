@@ -17,6 +17,8 @@
  */
 package ca.uqac.lif.json;
 
+import org.json.simple.JSONValue;
+
 /**
  * Implementation of a string value in a JSON structure
  */
@@ -26,6 +28,15 @@ public class JsonString extends JsonElement
 	 * The string value
 	 */
 	private String m_string;
+	
+	/**
+	 * Creates a new empty JSON string
+	 */
+	public JsonString()
+	{
+		super();
+		m_string = "";
+	}
 
 	/**
 	 * Creates a new JSON string from a Java string
@@ -50,7 +61,7 @@ public class JsonString extends JsonElement
 	public String toString(String indent, boolean compact)
 	{
 		StringBuilder out = new StringBuilder();
-		out.append("\"").append(m_string).append("\"");
+		out.append("\"").append(JSONValue.escape(m_string)).append("\"");
 		return out.toString();
 	}
 

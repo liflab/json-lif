@@ -22,6 +22,11 @@ package ca.uqac.lif.json;
  */
 public class JsonNull extends JsonElement
 {
+	public JsonNull()
+	{
+		super();
+	}
+	
 	@Override
 	protected String toString(String indent, boolean compact)
 	{

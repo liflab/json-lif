@@ -22,6 +22,11 @@ package ca.uqac.lif.json;
  */
 public class JsonTrue extends JsonElement
 {
+	public JsonTrue()
+	{
+		super();
+	}
+	
 	@Override
 	protected String toString(String indent, boolean compact)
 	{

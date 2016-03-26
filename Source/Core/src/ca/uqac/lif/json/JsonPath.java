@@ -196,15 +196,31 @@ public class JsonPath
 
 	protected static abstract class PathElement
 	{
+		public PathElement()
+		{
+			super();
+		}
 	}
 
 	protected static class KeyPathElement extends PathElement
 	{
-		public String m_key = "";
+		public String m_key;
+		
+		public KeyPathElement()
+		{
+			super();
+			m_key = "";
+		}
 	}
 
 	protected static class CardinalityPathElement extends PathElement
 	{
-		public int m_card = -1;
+		public int m_card;
+		
+		public CardinalityPathElement()
+		{
+			super();
+			m_card = -1;
+		}
 	}
 }

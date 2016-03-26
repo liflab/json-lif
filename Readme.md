@@ -5,6 +5,9 @@ This is a simple library for parsing and outputing JSON strings. It is a
 wrap around the [json-simple](https://github.com/fangyidong/json-simple)
 library.
 
+The JSON objects of this library can be safely serialized
+with [Azrael](https://github.com/sylvainhalle/Azrael).
+
 Build instructions
 ------------------
 

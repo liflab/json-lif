@@ -28,6 +28,14 @@ import org.json.simple.parser.ParseException;
 public class JsonParser
 {
 	private static JSONParser s_parser = new JSONParser();
+	
+	/**
+	 * Creates a new parser instance
+	 */
+	public JsonParser()
+	{
+		super();
+	}
 
 	/**
 	 * Parses a string into a JSON element
