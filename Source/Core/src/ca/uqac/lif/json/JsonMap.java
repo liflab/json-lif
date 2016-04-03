@@ -87,6 +87,19 @@ public class JsonMap extends JsonElement implements Map<String,JsonElement>
   {
   	return put(arg0, new JsonString(arg1));
   }
+  
+  public JsonElement put(String arg0, Object arg1)
+  {
+  	if (arg1 instanceof JsonElement)
+  	{
+  		return put(arg0, (JsonElement) arg1);
+  	}
+  	else if (arg1 instanceof Number)
+  	{
+  		return put(arg0, (Number) arg1);
+  	}
+  	return put(arg0, arg1.toString());
+  }
 
   @Override
   public void clear()
@@ -116,6 +129,21 @@ public class JsonMap extends JsonElement implements Map<String,JsonElement>
   public JsonElement get(Object arg0)
   {
     return m_map.get(arg0);
+  }
+  
+  public String getString(Object arg0)
+  {
+	  return ((JsonString) m_map.get(arg0)).stringValue();
+  }
+  
+  public Number getNumber(Object arg0)
+  {
+	  return ((JsonNumber) m_map.get(arg0)).numberValue();
+  }
+  
+  public int getInt(Object arg0)
+  {
+	  return getNumber(arg0).intValue();
   }
 
   @Override
