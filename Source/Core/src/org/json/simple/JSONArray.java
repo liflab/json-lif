@@ -14,7 +14,7 @@ import java.util.Iterator;
 /**
  * A JSON array. JSONObject supports java.util.List interface.
  * 
- * @author FangYidong<fangyidong@yahoo.com.cn>
+ * @author Fang Yidong fangyidong@yahoo.com.cn
  */
 @SuppressWarnings("rawtypes")
 public class JSONArray extends ArrayList implements JSONAware, JSONStreamAware {

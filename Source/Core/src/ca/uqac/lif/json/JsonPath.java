@@ -207,7 +207,7 @@ public class JsonPath
 		return s_answer;
 	}
 
-	protected static abstract class PathElement
+	public static abstract class PathElement
 	{
 		public PathElement()
 		{

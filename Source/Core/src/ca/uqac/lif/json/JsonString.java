@@ -40,7 +40,7 @@ public class JsonString extends JsonElement
 
 	/**
 	 * Creates a new JSON string from a Java string
-	 * @param n The string
+	 * @param s The string
 	 */
 	public JsonString(String s)
 	{
