@@ -18,6 +18,7 @@
 package ca.uqac.lif.json;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Representation of a path in a JSON element. A path is used to fetch
@@ -54,6 +55,18 @@ public class JsonPath
 	 */
 	public static JsonElement get(JsonElement root, String path)
 	{
+		return get(root, getPathElements(path));
+	}
+	
+	/**
+	 * Parses a string to a list of path elements
+	 * @param path A string representing the path to follow
+	 * @return A JSON element corresponding to the end of the path,
+	 *   or null if the path does not correspond to anything in
+	 *   the JSON element
+	 */
+	public static List<PathElement> getPathElements(String path)
+	{
 		path = path.replace(".", "/");
 		path = path.replace("[", "/[");
 		String[] parts = path.split("/");
@@ -78,7 +91,7 @@ public class JsonPath
 				out_path.add(kpe);
 			}
 		}
-		return get(root, out_path);
+		return out_path;
 	}
 
 	/**
@@ -89,7 +102,7 @@ public class JsonPath
 	 *   or null if the path does not correspond to anything in
 	 *   the JSON element
 	 */
-	public static JsonElement get(JsonElement root, LinkedList<PathElement> path)
+	public static JsonElement get(JsonElement root, List<PathElement> path)
 	{
 		if (path.isEmpty())
 		{
