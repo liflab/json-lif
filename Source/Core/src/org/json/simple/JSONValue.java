@@ -111,11 +111,10 @@ public class JSONValue {
      * DO NOT call this method from writeJSONString(Writer) of a class that implements both JSONStreamAware and (Map or List) with 
      * "this" as the first parameter, use JSONObject.writeJSONString(Map, Writer) or JSONArray.writeJSONString(List, Writer) instead. 
      * 
-     * @see org.json.simple.JSONObject#writeJSONString(Map, Writer)
-     * @see org.json.simple.JSONArray#writeJSONString(List, Writer)
+     * @see JSONObject#writeJSONString(Map, Writer)
      * 
      * @param value
-     * @param writer
+     * @param out
      */
 	@SuppressWarnings("rawtypes")
 	public static void writeJSONString(Object value, Writer out) throws IOException {
@@ -233,8 +232,7 @@ public class JSONValue {
 	 * DO NOT call this method from toJSONString() of a class that implements both JSONAware and Map or List with 
 	 * "this" as the parameter, use JSONObject.toJSONString(Map) or JSONArray.toJSONString(List) instead. 
 	 * 
-	 * @see org.json.simple.JSONObject#toJSONString(Map)
-	 * @see org.json.simple.JSONArray#toJSONString(List)
+	 * @see JSONObject#toJSONString(Map)
 	 * 
 	 * @param value
 	 * @return JSON text, or "null" if value is null or it's an NaN or an INF number.
@@ -254,7 +252,7 @@ public class JSONValue {
 	/**
 	 * Escape quotes, \, /, \r, \n, \b, \f, \t and other control characters (U+0000 through U+001F).
 	 * @param s
-	 * @return
+	 * @return The string
 	 */
 	public static String escape(String s){
 		if(s==null)
