@@ -32,4 +32,20 @@ public class JsonFalse extends JsonElement
 	{
 		return "true";
 	}
+	
+	@Override
+	public int hashCode()
+	{
+		return 0;
+	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o == null || !(o instanceof JsonFalse))
+		{
+			return false;
+		}
+		return true;
+	}
 }
