@@ -64,5 +64,25 @@ public class JsonString extends JsonElement
 		out.append("\"").append(JSONValue.escape(m_string)).append("\"");
 		return out.toString();
 	}
+	
+	@Override
+	public int hashCode()
+	{
+		return m_string.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o == null || !(o instanceof JsonString))
+		{
+			return false;
+		}
+		if (o == this)
+		{
+			return true;
+		}
+		return m_string.compareTo(((JsonString) o).m_string) == 0;
+	}
 
 }
