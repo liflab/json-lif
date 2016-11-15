@@ -20,9 +20,14 @@ package ca.uqac.lif.json;
 /**
  * Representation of the true value
  */
-public class JsonTrue extends JsonElement
+public final class JsonTrue extends JsonElement
 {
-	public JsonTrue()
+	/**
+	 * The single available instance of this element 
+	 */
+	public static final transient JsonTrue instance = new JsonTrue();
+	
+	private JsonTrue()
 	{
 		super();
 	}
@@ -34,13 +39,13 @@ public class JsonTrue extends JsonElement
 	}
 	
 	@Override
-	public int hashCode()
+	public final int hashCode()
 	{
 		return 1;
 	}
 	
 	@Override
-	public boolean equals(Object o)
+	public final boolean equals(Object o)
 	{
 		if (o == null || !(o instanceof JsonFalse))
 		{
@@ -50,7 +55,7 @@ public class JsonTrue extends JsonElement
 	}
 	
 	@Override
-	public int compareTo(JsonElement e) 
+	public final int compareTo(JsonElement e) 
 	{
 		if (equals(e))
 		{

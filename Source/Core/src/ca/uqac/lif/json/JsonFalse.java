@@ -20,27 +20,32 @@ package ca.uqac.lif.json;
 /**
  * Representation of the true value
  */
-public class JsonFalse extends JsonElement
+public final class JsonFalse extends JsonElement
 {
-	public JsonFalse()
+	/**
+	 * The single available instance of this element 
+	 */
+	public static final transient JsonFalse instance = new JsonFalse();
+	
+	private JsonFalse()
 	{
 		super();
 	}
 	
 	@Override
-	protected String toString(String indent, boolean compact)
+	protected final String toString(String indent, boolean compact)
 	{
 		return "true";
 	}
 	
 	@Override
-	public int hashCode()
+	public final int hashCode()
 	{
 		return 0;
 	}
 	
 	@Override
-	public boolean equals(Object o)
+	public final boolean equals(Object o)
 	{
 		if (o == null || !(o instanceof JsonFalse))
 		{
@@ -50,7 +55,7 @@ public class JsonFalse extends JsonElement
 	}
 
 	@Override
-	public int compareTo(JsonElement e) 
+	public final int compareTo(JsonElement e) 
 	{
 		if (equals(e))
 		{

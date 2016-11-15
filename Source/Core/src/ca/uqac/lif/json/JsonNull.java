@@ -20,27 +20,32 @@ package ca.uqac.lif.json;
 /**
  * Representation of the null value
  */
-public class JsonNull extends JsonElement
+public final class JsonNull extends JsonElement
 {
-	public JsonNull()
+	/**
+	 * The single available instance of this element 
+	 */
+	public static final transient JsonNull instance = new JsonNull();
+	
+	private JsonNull()
 	{
 		super();
 	}
 	
 	@Override
-	protected String toString(String indent, boolean compact)
+	protected final String toString(String indent, boolean compact)
 	{
 		return "null";
 	}
 	
 	@Override
-	public int hashCode()
+	public final int hashCode()
 	{
 		return -1;
 	}
 	
 	@Override
-	public boolean equals(Object o)
+	public final boolean equals(Object o)
 	{
 		if (o == null || !(o instanceof JsonNull))
 		{
@@ -50,7 +55,7 @@ public class JsonNull extends JsonElement
 	}
 
 	@Override
-	public int compareTo(JsonElement o) 
+	public final int compareTo(JsonElement o) 
 	{
 		return -1;
 	}

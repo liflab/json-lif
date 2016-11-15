@@ -27,7 +27,7 @@ import org.json.simple.parser.ParseException;
  */
 public class JsonParser
 {
-	private static JSONParser s_parser = new JSONParser();
+	private static transient JSONParser s_parser = new JSONParser();
 	
 	/**
 	 * Creates a new parser instance
@@ -73,7 +73,7 @@ public class JsonParser
 		JsonElement out = null;
 		if (obj == null)
 		{
-			return new JsonNull();
+			return JsonNull.instance;
 		}
 		else if (obj instanceof JSONObject)
 		{
@@ -110,9 +110,9 @@ public class JsonParser
 		{
 			if (((Boolean) obj) == true)
 			{
-				out = new JsonTrue();
+				out = JsonTrue.instance;
 			}
-			out = new JsonFalse();
+			out = JsonFalse.instance;
 		}
 		return out;
 	}
