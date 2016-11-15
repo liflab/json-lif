@@ -110,4 +110,31 @@ public class JsonNumber extends JsonElement
 		return m_number.floatValue() == (((JsonNumber) o).m_number).floatValue();
 	}
 
+	@Override
+	public int compareTo(JsonElement e) 
+	{
+		if (equals(e))
+		{
+			return 0;
+		}
+		if (e instanceof JsonNull || e instanceof JsonFalse || e instanceof JsonTrue)
+		{
+			return 1;
+		}
+		if (e instanceof JsonNumber)
+		{
+			float my_f = m_number.floatValue();
+			float other_f = ((JsonNumber) e).m_number.floatValue();
+			if (my_f < other_f)
+			{
+				return -1;
+			}
+			if (my_f > other_f)
+			{
+				return 1;
+			}
+			return 0;
+		}
+		return -1;
+	}
 }

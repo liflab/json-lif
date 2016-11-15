@@ -48,4 +48,18 @@ public class JsonTrue extends JsonElement
 		}
 		return true;
 	}
+	
+	@Override
+	public int compareTo(JsonElement e) 
+	{
+		if (equals(e))
+		{
+			return 0;
+		}
+		if (e instanceof JsonNull || e instanceof JsonFalse)
+		{
+			return 1;
+		}
+		return -1;
+	}
 }

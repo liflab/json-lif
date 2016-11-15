@@ -85,4 +85,22 @@ public class JsonString extends JsonElement
 		return m_string.compareTo(((JsonString) o).m_string) == 0;
 	}
 
+	@Override
+	public int compareTo(JsonElement e) 
+	{
+		if (equals(e))
+		{
+			return 0;
+		}
+		if (e instanceof JsonNull || e instanceof JsonFalse || 
+				e instanceof JsonTrue || e instanceof JsonNumber)
+		{
+			return 1;
+		}
+		if (e instanceof JsonString)
+		{
+			return m_string.compareTo(((JsonString) e).m_string);
+		}
+		return -1;
+	}
 }

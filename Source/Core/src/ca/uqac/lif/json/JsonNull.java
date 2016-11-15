@@ -48,4 +48,10 @@ public class JsonNull extends JsonElement
 		}
 		return true;
 	}
+
+	@Override
+	public int compareTo(JsonElement o) 
+	{
+		return -1;
+	}
 }

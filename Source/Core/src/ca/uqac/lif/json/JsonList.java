@@ -25,216 +25,247 @@ import java.util.ListIterator;
 
 public class JsonList extends JsonElement implements List<JsonElement>
 {
-  protected List<JsonElement> m_list;
-  
-  public JsonList()
-  {
-    super();
-    m_list = new LinkedList<JsonElement>();
-  }
-  
-  public static String toJsonString(Collection<String> list)
-  {
-    StringBuilder out = new StringBuilder();
-    out.append("[");
-    boolean first = true;
-    for (String s : list)
-    {
-      if (first)
-        first = false;
-      else
-        out.append(", ");
-      out.append("\"").append(s).append("\"");
-    }
-    out.append("]");
-    return out.toString();
-  }
-  
-  @Override
-  public String toString(String indent, boolean compact)
-  {
-    StringBuilder out = new StringBuilder();
-    out.append(indent).append("[");
-    if (!compact)
-    	out.append("\n");
-    boolean first = true;
-    for (JsonElement e : this)
-    {
-      if (first)
-        first = false;
-      else
-      {
-        out.append(",");
-        if (!compact)
-        {
-        	out.append("\n");
-        }
-      }
-      if (!compact)
-      {
-      	out.append(e.toString(indent + "  ", compact));
-      	out.append("\n").append(indent);
-      }
-      else
-      {
-      	out.append(e.toString("", compact));
-      }
-    }
-    out.append("]");
-    return out.toString();
-  }
+	protected List<JsonElement> m_list;
 
-  @Override
-  public boolean add(JsonElement e)
-  {
-    return m_list.add(e);
-  }
-  
-  public boolean add(String s)
-  {
-    return m_list.add(new JsonString(s));
-  }
-  
-  public boolean add(Number n)
-  {
-    return m_list.add(new JsonNumber(n));
-  }
+	public JsonList()
+	{
+		super();
+		m_list = new LinkedList<JsonElement>();
+	}
 
-  @Override
-  public void add(int index, JsonElement element)
-  {
-    m_list.add(index, element);
-  }
-  
-  public void add(int index, String element)
-  {
-    m_list.add(index, new JsonString(element));
-  }
+	public static String toJsonString(Collection<String> list)
+	{
+		StringBuilder out = new StringBuilder();
+		out.append("[");
+		boolean first = true;
+		for (String s : list)
+		{
+			if (first)
+				first = false;
+			else
+				out.append(", ");
+			out.append("\"").append(s).append("\"");
+		}
+		out.append("]");
+		return out.toString();
+	}
 
-  @Override
-  public boolean addAll(Collection<? extends JsonElement> c)
-  {
-    return m_list.addAll(c);
-  }
+	@Override
+	public String toString(String indent, boolean compact)
+	{
+		StringBuilder out = new StringBuilder();
+		out.append(indent).append("[");
+		if (!compact)
+			out.append("\n");
+		boolean first = true;
+		for (JsonElement e : this)
+		{
+			if (first)
+				first = false;
+			else
+			{
+				out.append(",");
+				if (!compact)
+				{
+					out.append("\n");
+				}
+			}
+			if (!compact)
+			{
+				out.append(e.toString(indent + "  ", compact));
+				out.append("\n").append(indent);
+			}
+			else
+			{
+				out.append(e.toString("", compact));
+			}
+		}
+		out.append("]");
+		return out.toString();
+	}
 
-  @Override
-  public boolean addAll(int index, Collection<? extends JsonElement> c)
-  {
-    return m_list.addAll(index, c);
-  }
+	@Override
+	public boolean add(JsonElement e)
+	{
+		return m_list.add(e);
+	}
 
-  @Override
-  public void clear()
-  {
-    m_list.clear();
-  }
+	public boolean add(String s)
+	{
+		return m_list.add(new JsonString(s));
+	}
 
-  @Override
-  public boolean contains(Object o)
-  {
-    return m_list.contains(o);
-  }
+	public boolean add(Number n)
+	{
+		return m_list.add(new JsonNumber(n));
+	}
 
-  @Override
-  public boolean containsAll(Collection<?> c)
-  {
-    return m_list.containsAll(c);
-  }
+	@Override
+	public void add(int index, JsonElement element)
+	{
+		m_list.add(index, element);
+	}
 
-  @Override
-  public JsonElement get(int index)
-  {
-    return m_list.get(index);
-  }
+	public void add(int index, String element)
+	{
+		m_list.add(index, new JsonString(element));
+	}
 
-  @Override
-  public int indexOf(Object o)
-  {
-    return m_list.indexOf(o);
-  }
+	@Override
+	public boolean addAll(Collection<? extends JsonElement> c)
+	{
+		return m_list.addAll(c);
+	}
 
-  @Override
-  public boolean isEmpty()
-  {
-    return m_list.isEmpty();
-  }
+	@Override
+	public boolean addAll(int index, Collection<? extends JsonElement> c)
+	{
+		return m_list.addAll(index, c);
+	}
 
-  @Override
-  public Iterator<JsonElement> iterator()
-  {
-    return m_list.iterator();
-  }
+	@Override
+	public void clear()
+	{
+		m_list.clear();
+	}
 
-  @Override
-  public int lastIndexOf(Object o)
-  {
-    return m_list.lastIndexOf(o);
-  }
+	@Override
+	public boolean contains(Object o)
+	{
+		return m_list.contains(o);
+	}
 
-  @Override
-  public ListIterator<JsonElement> listIterator()
-  {
-    return m_list.listIterator();
-  }
+	@Override
+	public boolean containsAll(Collection<?> c)
+	{
+		return m_list.containsAll(c);
+	}
 
-  @Override
-  public ListIterator<JsonElement> listIterator(int index)
-  {
-    return m_list.listIterator(index);
-  }
+	@Override
+	public JsonElement get(int index)
+	{
+		return m_list.get(index);
+	}
 
-  @Override
-  public boolean remove(Object o)
-  {
-    return m_list.remove(o);
-  }
+	@Override
+	public int indexOf(Object o)
+	{
+		return m_list.indexOf(o);
+	}
 
-  @Override
-  public JsonElement remove(int index)
-  {
-    return m_list.remove(index);
-  }
+	@Override
+	public boolean isEmpty()
+	{
+		return m_list.isEmpty();
+	}
 
-  @Override
-  public boolean removeAll(Collection<?> c)
-  {
-    return m_list.removeAll(c);
-  }
+	@Override
+	public Iterator<JsonElement> iterator()
+	{
+		return m_list.iterator();
+	}
 
-  @Override
-  public boolean retainAll(Collection<?> c)
-  {
-    return m_list.retainAll(c);
-  }
+	@Override
+	public int lastIndexOf(Object o)
+	{
+		return m_list.lastIndexOf(o);
+	}
 
-  @Override
-  public JsonElement set(int index, JsonElement element)
-  {
-    return m_list.set(index, element);
-  }
+	@Override
+	public ListIterator<JsonElement> listIterator()
+	{
+		return m_list.listIterator();
+	}
 
-  @Override
-  public int size()
-  {
-    return m_list.size();
-  }
+	@Override
+	public ListIterator<JsonElement> listIterator(int index)
+	{
+		return m_list.listIterator(index);
+	}
 
-  @Override
-  public List<JsonElement> subList(int fromIndex, int toIndex)
-  {
-    return m_list.subList(fromIndex, toIndex);
-  }
+	@Override
+	public boolean remove(Object o)
+	{
+		return m_list.remove(o);
+	}
 
-  @Override
-  public Object[] toArray()
-  {
-    return m_list.toArray();
-  }
+	@Override
+	public JsonElement remove(int index)
+	{
+		return m_list.remove(index);
+	}
 
-  @Override
-  public <T> T[] toArray(T[] a)
-  {
-    return m_list.toArray(a);
-  }
+	@Override
+	public boolean removeAll(Collection<?> c)
+	{
+		return m_list.removeAll(c);
+	}
+
+	@Override
+	public boolean retainAll(Collection<?> c)
+	{
+		return m_list.retainAll(c);
+	}
+
+	@Override
+	public JsonElement set(int index, JsonElement element)
+	{
+		return m_list.set(index, element);
+	}
+
+	@Override
+	public int size()
+	{
+		return m_list.size();
+	}
+
+	@Override
+	public List<JsonElement> subList(int fromIndex, int toIndex)
+	{
+		return m_list.subList(fromIndex, toIndex);
+	}
+
+	@Override
+	public Object[] toArray()
+	{
+		return m_list.toArray();
+	}
+
+	@Override
+	public <T> T[] toArray(T[] a)
+	{
+		return m_list.toArray(a);
+	}
+
+	@Override
+	public int compareTo(JsonElement e) 
+	{
+		if (equals(e))
+		{
+			return 0;
+		}
+		if (e instanceof JsonNull || e instanceof JsonFalse || 
+				e instanceof JsonTrue || e instanceof JsonNumber 
+				|| e instanceof JsonString)
+		{
+			return 1;
+		}
+		if (e instanceof JsonList)
+		{
+			JsonList other_list = (JsonList) e;
+			int my_size = size();
+			int other_size = other_list.size();
+			if (my_size < other_size)
+			{
+				return -1;
+			}
+			if (my_size == other_size)
+			{
+				return 0;
+			}
+			return 1;
+		}
+		return -1;
+	}
 
 }

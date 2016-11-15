@@ -21,7 +21,7 @@ package ca.uqac.lif.json;
  * Implementation of a JSON element. All concrete elements of a JSON object
  * (maps, lists, number, strings) are descendents of this class.
  */
-public abstract class JsonElement
+public abstract class JsonElement implements Comparable<JsonElement>
 {
   @Override
   public final String toString()
