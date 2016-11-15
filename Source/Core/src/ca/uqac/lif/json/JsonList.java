@@ -255,6 +255,20 @@ public class JsonList extends JsonElement implements List<JsonElement>
 			JsonList other_list = (JsonList) e;
 			int my_size = size();
 			int other_size = other_list.size();
+			int common_size = Math.min(my_size, other_size);
+			for (int i = 0; i < common_size; i++)
+			{
+				JsonElement e1 = get(i);
+				JsonElement e2 = other_list.get(i);
+				if (e1.compareTo(e2) < 0)
+				{
+					return -1;
+				}
+				if (e1.compareTo(e2) > 0)
+				{
+					return 1;
+				}
+			} 
 			if (my_size < other_size)
 			{
 				return -1;
