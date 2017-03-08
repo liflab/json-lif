@@ -47,7 +47,7 @@ public final class JsonTrue extends JsonElement
 	@Override
 	public final boolean equals(Object o)
 	{
-		if (o == null || !(o instanceof JsonFalse))
+		if (o == null || !(o instanceof JsonTrue))
 		{
 			return false;
 		}
@@ -61,7 +61,7 @@ public final class JsonTrue extends JsonElement
 		{
 			return 0;
 		}
-		if (e instanceof JsonNull || e instanceof JsonFalse)
+		if (e instanceof JsonNull || e instanceof JsonTrue)
 		{
 			return 1;
 		}

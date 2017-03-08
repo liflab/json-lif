@@ -112,7 +112,10 @@ public class JsonParser
 			{
 				out = JsonTrue.instance;
 			}
-			out = JsonFalse.instance;
+			else
+			{
+				out = JsonFalse.instance;
+			}
 		}
 		return out;
 	}

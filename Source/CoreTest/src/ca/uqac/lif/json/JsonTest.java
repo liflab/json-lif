@@ -83,6 +83,22 @@ public class JsonTest
 		assertTrue(jm.get("b") instanceof JsonFalse);
 		assertTrue(jm.get("c") instanceof JsonNull);
 	}
+	
+	@Test
+	public void testParserBoolean1() throws IOException, JsonParseException
+	{
+		JsonElement jse = j_parser.parse("false");
+		assertNotNull(jse);
+		assertTrue(jse instanceof JsonFalse);
+	}
+	
+	@Test
+	public void testParserBoolean2() throws IOException, JsonParseException
+	{
+		JsonElement jse = j_parser.parse("true");
+		assertNotNull(jse);
+		assertTrue(jse instanceof JsonTrue);
+	}
 
 	@Test
 	public void testParserLarge1() throws IOException, JsonParseException
