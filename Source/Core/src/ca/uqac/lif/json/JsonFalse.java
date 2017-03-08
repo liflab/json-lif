@@ -35,7 +35,7 @@ public final class JsonFalse extends JsonBoolean
 	@Override
 	protected final String toString(String indent, boolean compact)
 	{
-		return "true";
+		return "false";
 	}
 	
 	@Override
