@@ -20,7 +20,7 @@ package ca.uqac.lif.json;
 /**
  * Representation of the true value
  */
-public final class JsonTrue extends JsonElement
+public final class JsonTrue extends JsonBoolean
 {
 	/**
 	 * The single available instance of this element 
@@ -67,4 +67,11 @@ public final class JsonTrue extends JsonElement
 		}
 		return -1;
 	}
+	
+	@Override
+	public boolean boolValue()
+	{
+		return true;
+	}
+
 }
