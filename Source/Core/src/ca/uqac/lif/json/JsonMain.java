@@ -29,9 +29,9 @@ public class JsonMain
 	 */
 	public static void main(String[] args)
 	{
-		String version = "1.4";
+		String version = "1.6.2";
 		System.out.println("json-lif version " + version + ", manipulate JSON elements in Java");
-		System.out.println("(C) 2015-2016 Sylvain Hallé, Université du Québec à Chicoutimi");
+		System.out.println("(C) 2015-2017 Sylvain Hallé, Université du Québec à Chicoutimi");
 		System.out.println("This JAR is not meant to be executed as a stand-alone program.");
 	}
 
