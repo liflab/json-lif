@@ -23,7 +23,7 @@
   xmlns:jacoco="antlib:org.jacoco.ant">
   
   <!-- The build script's version number. Do not edit! -->
-  <property name="antrun.version" value="1.1.6"/>
+  <property name="antrun.version" value="1.2"/>
   
   <!-- Load project properties from XML file -->
   <xmlproperty file="config.xml"/>
@@ -117,7 +117,16 @@
     <echo level="info">Your extension folder is ${build.extdir}</echo>
     <!-- Create depdir -->
     <mkdir dir="${build.depdir}"/>
-    <mkdir dir="${build.docdir}"/>
+  </target>
+
+  <!-- Check if a local rt.jar is present. If so, it will override the
+       default rt.jar present in the system. The "compile" task should
+       depend on this. -->
+  <target name="check-rt" depends="init">
+    <available file="rt.jar" property="localrt.present"/>
+    <echo message="Local bootstrap JAR is present"/>
+    <var name="java6.boot.classpath" unset="true"/>
+    <property name="java6.boot.classpath" value="rt.jar"/>
   </target>
   
   <!-- Target: zip
@@ -138,7 +147,7 @@
   <!-- Target: compile
        Compiles the main project
   -->
-  <target name="compile" depends="init" description="Compile the sources">
+  <target name="compile" depends="init,check-rt" description="Compile the sources">
     <mkdir dir="${build.bindir}"/>
     <javac
       target="1.6" source="1.6"
@@ -190,6 +199,7 @@
        Generates the javadoc associated to the project
   -->
   <target name="javadoc" depends="init" description="Generate the documentation">
+    <mkdir dir="${build.docdir}"/>
     <javadoc sourcepath="${build.srcdir}"
              destdir="${build.docdir}"
              packagenames="*"
@@ -220,7 +230,7 @@
   <!-- Target: jar
        Generates a JAR file with the compiled files and javadoc
   -->
-  <target name="jar" depends="compile" description="Create the runnable JAR">
+  <target name="jar" depends="compile,javadoc" description="Create the runnable JAR">
       <tstamp>
          <format property="TODAY" pattern="yyyy-MM-dd HH:mm:ss" />
       </tstamp>
@@ -391,6 +401,14 @@
     <mkdir dir="${build.libdir}"/>
     <get src="http://sylvainhalle.github.io/AntRun/dependencies/xmltask.jar" dest="${build.libdir}/${xmltask.jarname}"/>
   </target>
+
+  <!-- Target: download-rt6
+       Download boot classpath for Java 1.6 and put it in the root folder
+  -->
+  <target name="download-rt6">
+    <get src="http://sylvainhalle.github.io/AntRun/dependencies/1.6.0_45/rt.jar" dest="."/>
+  </target>
+
   
   <!-- Target: junit
        Download jUnit JARs if not present, and puts them in the lib folder
