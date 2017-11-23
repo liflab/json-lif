@@ -59,4 +59,10 @@ public final class JsonNull extends JsonElement
 	{
 		return -1;
 	}
+	
+	@Override
+	public JsonNull clone()
+	{
+		return instance;
+	}
 }

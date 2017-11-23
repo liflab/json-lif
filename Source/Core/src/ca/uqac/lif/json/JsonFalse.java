@@ -73,4 +73,10 @@ public final class JsonFalse extends JsonBoolean
 	{
 		return false;
 	}
+	
+	@Override
+	public JsonFalse clone()
+	{
+		return instance;
+	}
 }

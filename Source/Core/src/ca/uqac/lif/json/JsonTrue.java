@@ -74,4 +74,9 @@ public final class JsonTrue extends JsonBoolean
 		return true;
 	}
 
+	@Override
+	public JsonTrue clone() {
+		return new JsonTrue();
+	}
+
 }

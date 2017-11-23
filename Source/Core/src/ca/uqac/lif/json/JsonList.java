@@ -282,4 +282,16 @@ public class JsonList extends JsonElement implements List<JsonElement>
 		return -1;
 	}
 
+	@Override
+	public JsonList clone()
+	{
+		JsonList list = new JsonList();
+		Iterator<JsonElement> it = iterator();
+		while(it.hasNext())
+		{
+			list.add(it.next().clone());
+		}
+		return list;
+	}
+
 }

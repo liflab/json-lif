@@ -218,4 +218,14 @@ public class JsonMap extends JsonElement implements Map<String,JsonElement>
 		}
 		return -1;
 	}
+
+	@Override
+	public JsonMap clone() {
+		JsonMap map = new JsonMap();
+		for(String key : keySet())
+		{
+			map.put(key, get(key).clone());
+		}
+		return map;
+	}
 }

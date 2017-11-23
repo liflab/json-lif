@@ -103,4 +103,9 @@ public class JsonString extends JsonElement
 		}
 		return -1;
 	}
+
+	@Override
+	public JsonString clone() {
+		return new JsonString(new String(m_string));
+	}
 }

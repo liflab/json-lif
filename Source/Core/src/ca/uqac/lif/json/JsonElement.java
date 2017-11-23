@@ -35,4 +35,6 @@ public abstract class JsonElement implements Comparable<JsonElement>
   }
   
   protected abstract String toString(String indent, boolean compact);
+  
+  public abstract JsonElement clone();
 }

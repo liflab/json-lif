@@ -137,4 +137,10 @@ public class JsonNumber extends JsonElement
 		}
 		return -1;
 	}
+	
+	@Override
+	public JsonNumber clone()
+	{
+		return new JsonNumber(m_number);
+	}
 }
