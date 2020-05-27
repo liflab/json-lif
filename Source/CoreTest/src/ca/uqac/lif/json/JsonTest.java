@@ -1,6 +1,6 @@
 /*
     json-lif, manipulate JSON elements in Java
-    Copyright (C) 2015-2016 Sylvain Hallé
+    Copyright (C) 2015-2020 Sylvain Hallé
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published
@@ -98,6 +98,33 @@ public class JsonTest
 		JsonElement jse = j_parser.parse("true");
 		assertNotNull(jse);
 		assertTrue(jse instanceof JsonTrue);
+	}
+	
+	@Test
+	public void testParserNumber1() throws IOException, JsonParseException
+	{
+		JsonElement jse = j_parser.parse("42");
+		assertNotNull(jse);
+		assertTrue(jse instanceof JsonNumber);
+		assertTrue(((JsonNumber) jse).numberValue() instanceof Integer);
+	}
+	
+	@Test
+	public void testParserNumber2() throws IOException, JsonParseException
+	{
+		JsonElement jse = j_parser.parse("4237585959");
+		assertNotNull(jse);
+		assertTrue(jse instanceof JsonNumber);
+		assertTrue(((JsonNumber) jse).numberValue() instanceof Long);
+	}
+	
+	@Test
+	public void testParserNumber3() throws IOException, JsonParseException
+	{
+		JsonElement jse = j_parser.parse("4.237585959");
+		assertNotNull(jse);
+		assertTrue(jse instanceof JsonNumber);
+		assertTrue(((JsonNumber) jse).numberValue() instanceof Double);
 	}
 
 	@Test

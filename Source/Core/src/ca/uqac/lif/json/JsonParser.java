@@ -1,6 +1,6 @@
 /*
     json-lif, manipulate JSON elements in Java
-    Copyright (C) 2015-2016 Sylvain Hallé
+    Copyright (C) 2015-2020 Sylvain Hallé
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published
@@ -104,7 +104,24 @@ public class JsonParser
 		}
 		else if (obj instanceof Number)
 		{
-			out = new JsonNumber((Number) obj);
+			if (obj instanceof Long)
+			{
+				Long l_obj = (Long) obj;
+				if (l_obj.longValue() <= Integer.MAX_VALUE && l_obj.longValue() >= Integer.MIN_VALUE)
+				{
+					// If number fits in the width of an int, return an int
+					out = new JsonNumber(l_obj.intValue());
+				}
+				else
+				{
+					// Otherwise, return a long
+					out = new JsonNumber(l_obj.longValue());
+				}
+			}
+			else
+			{
+				out = new JsonNumber((Number) obj);
+			}
 		}
 		else if (obj instanceof Boolean)
 		{
